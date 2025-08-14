@@ -1,0 +1,26 @@
+<odoo>
+    <!-- Product Template Form -->
+    <record id="view_product_template_form_moq" model="ir.ui.view">
+        <field name="name">product.template.form.moq</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_price']" position="after">
+                <field name="minimum_qty_tmpl" string="Minimum Order Quantity"
+                       invisible="product_variant_count &gt; 1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Product Variant Form -->
+    <record id="view_product_product_form_moq" model="ir.ui.view">
+        <field name="name">product.product.form.moq</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="minimum_qty" string="Minimum Order Quantity"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
