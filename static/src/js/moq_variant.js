@@ -22,6 +22,7 @@ publicWidget.registry.WebsiteSale.include({
             $moqContainer.empty(); // hide if MOQ <= 1
         }
 
+
         if (combination?.product_id) {
             const currentVariantId = combination.product_id;
 
@@ -40,6 +41,14 @@ publicWidget.registry.WebsiteSale.include({
                 }
             }
         }
+
+        if (combination?.minimum_qty) {
+            const $qtyInput = this.$('input[name="add_qty"]');
+            if (parseInt($qtyInput.val(), 10) < combination.minimum_qty) {
+                $qtyInput.val(combination.minimum_qty);
+            }
+        }
+
 
         return res;
     },
