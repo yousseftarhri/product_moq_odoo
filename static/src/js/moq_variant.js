@@ -10,6 +10,17 @@ publicWidget.registry.WebsiteSale.include({
      */
     _onChangeCombination(ev, $parent, combination) {
         const res = this._super.apply(this, arguments);
+        const $moqContainer = $parent.find('#moq_notice_container');
+
+        if (combination?.minimum_qty && combination.minimum_qty > 1) {
+            $moqContainer.html(`
+                <div class="alert alert-info">
+                    Minimum order quantity: ${combination.minimum_qty}
+                </div>
+            `);
+        } else {
+            $moqContainer.empty(); // hide if MOQ <= 1
+        }
 
         if (combination?.product_id) {
             const currentVariantId = combination.product_id;

@@ -15,12 +15,15 @@
     <template id="product_moq_notice" inherit_id="website_sale.product">
         <!-- Add message right after quantity selector -->
         <xpath expr="//div[@id='add_to_cart_wrap']" position="after">
-            <t t-if="combination_info.get('minimum_qty', 1) &gt; 1">
-                <div class="alert alert-info mt-2">
-                    Minimum order quantity:
-                    <t t-esc="combination_info['minimum_qty']"/>
-                </div>
-            </t>
+            <div id="moq_notice_container" class="w-100 mt-2">
+                <t t-if="combination_info.get('minimum_qty', 1) &gt; 1">
+                    <div class="alert alert-info">
+                        Minimum order quantity:
+                        <t t-esc="combination_info['minimum_qty']"/>
+                    </div>
+                </t>
+            </div>
         </xpath>
     </template>
+
 </odoo>
