@@ -8,6 +8,12 @@
         'views/product_views.xml',
         'views/product_template_website.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'product_moq/static/src/js/moq_variant.js',
+        ],
+    },
+
     'installable': True,
     'application': False,
 }
