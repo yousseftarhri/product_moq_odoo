@@ -1,12 +1,14 @@
 <odoo>
-    <template id="product_moq_qty_selector" inherit_id="website_sale.product">
+    <template id="product_qty_default_moq" inherit_id="website_sale.product">
         <xpath expr="//input[@name='add_qty']" position="attributes">
-            <t t-if="combination_info.get('minimum_qty', 1) &gt; 1">
-                <attribute name="value"><t t-esc="combination_info['minimum_qty']"/></attribute>
-                <attribute name="min"><t t-esc="combination_info['minimum_qty']"/></attribute>
-            </t>
-
-
+            <!-- Set default value to MOQ -->
+            <attribute name="t-att-value">
+                combination_info.get('minimum_qty', 1)
+            </attribute>
+            <!-- Also set the HTML min attribute so the user can't go lower -->
+            <attribute name="min">
+                <t t-esc="combination_info.get('minimum_qty', 1)"/>
+            </attribute>
         </xpath>
     </template>
 

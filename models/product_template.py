@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    minimum_qty_tmpl = fields.Float(string="Minimum Order Quantity (Template)", default=1.0)
+    minimum_qty_tmpl = fields.Integer(string="Minimum Order Quantity (Template)", default=1)
 
     @api.model
     def create(self, vals):
