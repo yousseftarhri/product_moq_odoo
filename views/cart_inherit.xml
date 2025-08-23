@@ -1,0 +1,13 @@
+<odoo>
+
+
+    <template id="cart_lines_inherit" inherit_id="website_sale.cart_lines" customize_show="True">
+        <xpath expr="//input[contains(@class, 'js_quantity')]" position="attributes">
+            <!-- Add minimum_qty as a data attribute -->
+            <attribute name="t-att-data-minimum-qty">
+                line.product_id.minimum_qty
+            </attribute>
+        </xpath>
+    </template>
+
+</odoo>
