@@ -10,7 +10,6 @@
         'static/description/product_moq.png',
         'static/description/moq_website.png',
         'static/description/product_moq_variant.png',
-        'static/description/icon.png',
     ],
 
     'data': [
