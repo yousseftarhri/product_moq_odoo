@@ -18,9 +18,13 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='barcode']" position="after">
-                <field name="minimum_qty" string="Minimum Order Quantity"/>
+            <!-- Insert a new group after the Extra Variant Media group -->
+            <xpath expr="//group[@name='sales']" position="after">
+                <group string="Minimum Order Rules">
+                    <field name="minimum_qty" string="Minimum Order Quantity"/>
+                </group>
             </xpath>
         </field>
     </record>
+
 </odoo>
