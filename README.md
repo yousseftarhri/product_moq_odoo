@@ -1,5 +1,3 @@
-# product_moq_odoo
-
 # Minimum Order Quantity (MOQ) for Products in Odoo Website
 
 This module allows you to define a **Minimum Order Quantity** for each product or product variant.  
