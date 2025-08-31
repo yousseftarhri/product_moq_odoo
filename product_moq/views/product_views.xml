@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_tag_ids']" position="after">
                 <field name="minimum_qty_tmpl" string="Minimum Order Quantity"
-                       invisible="product_variant_count &gt; 1"/>
+                       attrs="{'invisible': [('product_variant_count','>',1)]}"/>
             </xpath>
         </field>
     </record>
@@ -19,7 +19,7 @@
         <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
         <field name="arch" type="xml">
             <!-- Insert a new group after the Extra Variant Media group -->
-            <xpath expr="//group[@name='sales']" position="after">
+            <xpath expr="//group[@name='packaging']" position="after">
                 <group string="Minimum Order Rules">
                     <field name="minimum_qty" string="Minimum Order Quantity"/>
                 </group>
