@@ -37,3 +37,7 @@ On the website, when viewing a product, the configured minimum order quantity wi
 For example: *"Minimum order quantity: 8"*
 
 ![Minimum Order Quantity on Website Shop](product_moq/static/description/moq_website.png)
+
+## Cart Quantity Restriction
+This image demonstrates that in the cart, the user cannot choose a quantity below the Minimum Order Quantity (MOQ).
+![Minimum Order Quantity on Website cart](product_moq/static/description/cart_moq.png)

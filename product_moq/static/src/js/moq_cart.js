@@ -18,7 +18,7 @@ publicWidget.registry.WebsiteSale.include({
         let qty = parseInt($input.val(), 10) || 0;
         const minQty = parseInt($input.data('minimum-qty'), 10) || 1;
 
-        if (qty < minQty) {
+        if (qty > 0 && qty < minQty) {
             qty = minQty;
             $input.val(minQty);
 
