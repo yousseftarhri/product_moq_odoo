@@ -16,11 +16,11 @@ publicWidget.registry.WebsiteSale.include({
         let qty = parseInt($input.val(), 10) || 0;
         const minQty = parseInt($input.data('minimum-qty'), 10) || 1;
 
-        if (qty < minQty) {
+        // Allow quantity 0 (product removal) without MOQ validation
+        if (qty > 0 && qty < minQty) {
             qty = minQty;
             $input.val(minQty);
 
-            // Use browser's native alert for simplicity in Odoo 18
             alert(_t(`You cannot order less than ${minQty} units of this product.`));
         }
     },
