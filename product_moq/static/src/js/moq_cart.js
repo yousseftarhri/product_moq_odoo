@@ -1,13 +1,11 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import Dialog from "@web/legacy/js/core/dialog";
+import { _t } from "@web/core/l10n/translation";
 
 publicWidget.registry.WebsiteSale.include({
     start() {
         this._super(...arguments);
-
-        // Event delegation: watch for any input.js_quantity inside the body
         $(document).on('change keyup', 'input.js_quantity', (ev) => {
             this._onCartQuantityChange(ev);
         });
@@ -22,11 +20,8 @@ publicWidget.registry.WebsiteSale.include({
             qty = minQty;
             $input.val(minQty);
 
-            new Dialog(this, {
-                title: "Minimum Quantity",
-                $content: $(`<p>You cannot order less than ${minQty} units of this product.</p>`),
-                buttons: [{ text: "OK", close: true }],
-            }).open();
+            // Use browser's native alert for simplicity in Odoo 18
+            alert(_t(`You cannot order less than ${minQty} units of this product.`));
         }
     },
 });
