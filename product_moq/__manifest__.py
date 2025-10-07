@@ -1,10 +1,12 @@
 {
     'name': 'Product Minimum Order Quantity',
-    'version': '16.0.1.0.0',
+    'version': '19.0.1.0.0',
     'summary': 'Set Minimum Order Quantity (MOQ) for products in Odoo Website',
     'author': 'Youssef tarhri',
     'website': 'https://yousseftarhri.me',
     'license': 'LGPL-3',
+    'price': '9.99',
+    'currency': 'USD',
     'depends': ['website_sale'],
     'images': [
         'static/description/main_screenshot.png',
