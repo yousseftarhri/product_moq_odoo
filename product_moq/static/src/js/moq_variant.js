@@ -1,9 +1,13 @@
 odoo.define('product_moq.moq_variant', function (require) {
     "use strict";
 
+<<<<<<< HEAD
     const { patch } = require('web.utils');
     const { WebsiteSale } = require('website_sale.website_sale');
     const publicWidget = require('web.public.widget');
+=======
+import publicWidget from "@web/legacy/js/public/public_widget";
+>>>>>>> c730d785e933a1ed38e1ff67f854a320810eedad
 
     // Patch the WebsiteSale OWL component
     patch(WebsiteSale.prototype, 'product_moq', {
@@ -48,7 +52,11 @@ odoo.define('product_moq.moq_variant', function (require) {
                 }
             }
 
+<<<<<<< HEAD
             return res;
         },
     });
 });
+=======
+});
+>>>>>>> c730d785e933a1ed38e1ff67f854a320810eedad
