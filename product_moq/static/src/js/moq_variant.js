@@ -1,62 +1,47 @@
-odoo.define('product_moq.moq_variant', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-<<<<<<< HEAD
-    const { patch } = require('web.utils');
-    const { WebsiteSale } = require('website_sale.website_sale');
-    const publicWidget = require('web.public.widget');
-=======
-import publicWidget from "@web/legacy/js/public/public_widget";
->>>>>>> c730d785e933a1ed38e1ff67f854a320810eedad
+import { publicWidget } from "@web/legacy/js/public/public_widget";
+import { WebsiteSale } from "@website_sale/js/website_sale";
 
-    // Patch the WebsiteSale OWL component
-    patch(WebsiteSale.prototype, 'product_moq', {
-        _onChangeCombination(ev, $parent, combination) {
-            // Call original method if exists
-            const res = this._super?.apply(this, arguments);
+publicWidget.registry.WebsiteSale = WebsiteSale.extend({
 
-            const $moqContainer = $parent.find('#moq_notice_container');
+    _lastVariantId: null,
 
-            // Show MOQ alert
-            if (combination?.minimum_qty && combination.minimum_qty > 1) {
-                $moqContainer.html(
-                    `<div class="alert alert-info">
-                        Minimum order quantity: ${combination.minimum_qty}
-                    </div>`
-                );
-            } else {
-                $moqContainer.empty(); // hide if MOQ <= 1
-            }
+    _onChangeCombination(ev, $parent, combination) {
+        const res = this._super(...arguments);
+        const $moqContainer = $parent.find('#moq_notice_container');
 
-            // Update quantity if variant changed
-            if (combination?.product_id) {
-                const currentVariantId = combination.product_id;
+        if (combination?.minimum_qty && combination.minimum_qty > 1) {
+            $moqContainer.html(`
+                <div class="alert alert-info">
+                    Minimum order quantity: ${combination.minimum_qty}
+                </div>
+            `);
+        } else {
+            $moqContainer.empty();
+        }
 
-                if (this._lastVariantId !== currentVariantId) {
-                    this._lastVariantId = currentVariantId;
+        if (combination?.product_id) {
+            const currentVariantId = combination.product_id;
 
-                    if (combination.minimum_qty) {
-                        const $qtyInput = $parent.find('input[name="add_qty"]');
-                        $qtyInput.attr('min', combination.minimum_qty);  // set min
-                        $qtyInput.val(combination.minimum_qty);         // set qty
-                    }
-                }
-            }
+            if (this._lastVariantId !== currentVariantId) {
+                this._lastVariantId = currentVariantId;
 
-            // Ensure current qty >= MOQ
-            if (combination?.minimum_qty) {
-                const $qtyInput = $parent.find('input[name="add_qty"]');
-                const currentQty = parseInt($qtyInput.val(), 10) || 1;
-                if (currentQty < combination.minimum_qty) {
+                if (combination.minimum_qty) {
+                    const $qtyInput = $parent.find('input[name="add_qty"]');
+                    $qtyInput.attr('min', combination.minimum_qty);
                     $qtyInput.val(combination.minimum_qty);
                 }
             }
+        }
 
-<<<<<<< HEAD
-            return res;
-        },
-    });
+        if (combination?.minimum_qty) {
+            const $qtyInput = this.$('input[name="add_qty"]');
+            if (parseInt($qtyInput.val(), 10) < combination.minimum_qty) {
+                $qtyInput.val(combination.minimum_qty);
+            }
+        }
+
+        return res;
+    },
 });
-=======
-});
->>>>>>> c730d785e933a1ed38e1ff67f854a320810eedad
