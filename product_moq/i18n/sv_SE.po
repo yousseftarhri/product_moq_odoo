@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_moq
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250819\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-06 14:45+0000\n"
+"PO-Revision-Date: 2026-02-06 14:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_moq
+#: model:ir.model.fields,field_description:product_moq.field_product_product__minimum_qty
+#: model_terms:ir.ui.view,arch_db:product_moq.view_product_product_form_moq
+#: model_terms:ir.ui.view,arch_db:product_moq.view_product_template_form_moq
+msgid "Minimum Order Quantity"
+msgstr "Minsta orderkvantitet:"
+
+#. module: product_moq
+#: model:ir.model.fields,field_description:product_moq.field_product_product__minimum_qty_tmpl
+#: model:ir.model.fields,field_description:product_moq.field_product_template__minimum_qty_tmpl
+msgid "Minimum Order Quantity (Template)"
+msgstr "Minsta orderkvantitet:"
+
+#. module: product_moq
+#: model_terms:ir.ui.view,arch_db:product_moq.view_product_product_form_moq
+msgid "Minimum Order Rules"
+msgstr "Minsta orderkvantitet:"
+
+#. module: product_moq
+#: model_terms:ir.ui.view,arch_db:product_moq.product_moq_notice
+msgid "Minimum order quantity:"
+msgstr "Minsta orderkvantitet:"
+
+#. module: product_moq
+#: model:ir.model,name:product_moq.model_product_template
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_moq
+#: model:ir.model,name:product_moq.model_product_product
+msgid "Product Variant"
+msgstr "Produktvariant"
+
+#. module: product_moq
+#. odoo-javascript
+#: code:addons/product_moq/static/src/js/moq_cart.js:0
+msgid "You cannot order less than ${minQty} units of this product."
+msgstr "Du kan inte beställa färre än ${minQty} enheter av denna produkt."
+
+#. module: product_moq
+#. odoo-javascript
+#: code:addons/product_moq/static/src/js/moq_variant.js:0
+msgid "Minimum order quantity: %s"
+msgstr "Minsta orderkvantitet: %s"

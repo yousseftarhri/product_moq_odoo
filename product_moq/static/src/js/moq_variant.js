@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
+import { _t } from "@web/core/l10n/translation";
 
 publicWidget.registry.WebsiteSale.include({
 
@@ -16,7 +17,7 @@ publicWidget.registry.WebsiteSale.include({
         if (combination?.minimum_qty && combination.minimum_qty > 1) {
             $moqContainer.html(`
                 <div class="alert alert-info">
-                    Minimum order quantity: ${combination.minimum_qty}
+                    ${_t("Minimum order quantity: %s", combination.minimum_qty)}
                 </div>
             `);
         } else {
