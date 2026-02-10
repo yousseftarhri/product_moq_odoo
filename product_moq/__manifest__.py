@@ -5,8 +5,6 @@
     'author': 'Youssef tarhri',
     'website': 'https://yousseftarhri.me',
     'license': 'LGPL-3',
-    'price': '9.99',
-    'currency': 'USD',
     'depends': ['website_sale'],
     'images': [
         'static/description/main_screenshot.png',
